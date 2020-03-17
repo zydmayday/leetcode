@@ -23,3 +23,9 @@ var rangeSumBST = function(root, L, R) {
     }
     return s;
 };
+
+var rangeSumBST = function(root, L, R) {
+    if (!root) return 0;
+    const childRes = rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
+    return root.val >= L && root.val <= R ? childRes + root.val : childRes;
+}
